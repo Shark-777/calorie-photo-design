@@ -224,7 +224,6 @@ input::placeholder{color:var(--ink2);opacity:.5}
 #accSheet .lk{all:unset;position:absolute;top:6px;right:8px;font-size:12px}
 #accSheet .go{all:unset;box-sizing:border-box;text-align:center;cursor:pointer;display:block;margin-top:16px;width:100%;min-height:52px;border:0;border-radius:99px;background:var(--cta);color:var(--onCta);font:700 16px var(--font)}
 #accSheet .x{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:center;float:right;border:0;background:var(--surface);width:44px;height:44px;border-radius:50%;font-size:18px;color:var(--ink)}
-#accFab{position:absolute;top:8px;right:64px;z-index:61;appearance:none;border:0;background:transparent;font-size:18px;min-width:44px;min-height:32px;cursor:pointer}
 </style></head><body>
 <div id="phone" data-variant="1" data-card="flat" data-btn="pill" data-tab="classic" data-ring="ring" data-dens="cozy" data-bar="thin" style="--pad:20px;--rcard:20px;--rchip:99px;--rc2:14px;--rday:14px;--rtile:20px;--rsheet:26px;--dotw:7px;--hw:800;--h1s:34px;--hls:-0.03em;--bw:700;--fontN:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter','Helvetica Neue',system-ui,sans-serif;--plateIn:#f7f3ec;--plateRim:#e4ded3;--f1:#c8793a;--f2:#7fae4f;--f3:#d9534f;--f4:#e8c547;--sh1:0 1px 2px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.05);--sh2:0 8px 30px rgba(0,0,0,.18);--fabsh:0 6px 16px rgba(0,0,0,.25);--bg:#FFFFFF;--surface:#F4F4F5;--surface2:#EDEDEF;--ink:#0A0A0A;--ink2:#5B5B63;--line:#E4E4E7;--accent:#0A0A0A;--onAccent:#FFFFFF;--cta:#0A0A0A;--onCta:#FFFFFF;--p:#3B9BF0;--c:#F0A02C;--f:#EE5E7A;--good:#2BB868;--warn:#F0A02C;--bad:#D93636;--flame:#F0802C;--track:#E4E4E7;--track2:#CFCFD4;--bar:rgba(255,255,255,.94);--sheet:#FFFFFF;--hero:transparent;--font:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter','Helvetica Neue',system-ui,sans-serif;--fontH:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter','Helvetica Neue',system-ui,sans-serif;--rb:99px">
 <div class="sbar"><span>9:41</span><span class="bt"></span></div><div id="screen"></div><div id="toast"></div><div id="info"></div></div>
@@ -789,6 +788,5 @@ function open(demo){const prem=demo||(typeof S!=='undefined'&&S.premium);const r
   apply(t.k);sh.classList.remove('on');toast((ru?'Цвет: ':'Colour: ')+(ru?t.ru:t.en))});
  const g=sh.querySelector('.go');if(g)g.onclick=()=>{sh.classList.remove('on');go('S30')};}
 const _act=act;act=function(e){if(e&&e.act==='do:accent')return open(false);return _act(e)};
-const f=document.createElement('button');f.id='accFab';f.textContent='🎨';f.setAttribute('aria-label','Цвет (просмотр)');f.onclick=()=>open(true);ph.appendChild(f);
 })();
 </script></body></html>
