@@ -212,6 +212,9 @@ input::placeholder{color:var(--ink2);opacity:.5}
 
 .wkleg{display:flex;align-items:center;gap:8px;margin-top:4px;font:500 12px var(--font);color:var(--ink2)}.wkleg i{display:inline-block;width:22px;border-top:2px dashed var(--ink2)}
 
+#phone{--accentInk:var(--accent)}
+#phone .renameb,#phone .rc3,#phone .iconb.on,#phone .bm.on,#phone .rch.add,#phone .tab.on .ic,#phone .tile .ic,#phone .plaque>.ic{color:var(--accentInk)}
+#phone button:focus-visible,#phone input:focus-visible,#phone select:focus-visible{outline-color:var(--accentInk)}
 #accSheet{position:absolute;inset:0;z-index:60;display:none;background:rgba(0,0,0,.35);align-items:flex-end}
 #accSheet.on{display:flex}
 #accSheet .pan{width:100%;background:var(--sheet);border-radius:26px 26px 0 0;padding:18px 20px 34px;font-family:var(--font);color:var(--ink)}
@@ -771,9 +774,9 @@ window.addEventListener('DOMContentLoaded',()=>{
   render()});
 </script><script>
 (function(){
-const TH=[{"k": "black", "ru": "Графит", "en": "Graphite", "cta": "#0A0A0A", "onCta": "#FFFFFF", "accent": "#0A0A0A", "onAccent": "#FFFFFF", "free": true}, {"k": "blue", "ru": "Синий", "en": "Blue", "cta": "#2A5DF6", "onCta": "#FFFFFF", "accent": "#2A5DF6", "onAccent": "#FFFFFF"}, {"k": "lime", "ru": "Лайм", "en": "Lime", "cta": "#84CC16", "onCta": "#142300", "accent": "#4D7C0F", "onAccent": "#FFFFFF"}, {"k": "tomato", "ru": "Томат", "en": "Tomato", "cta": "#C8402F", "onCta": "#FFFFFF", "accent": "#C8402F", "onAccent": "#FFFFFF"}], ph=document.getElementById('phone'), RUx=()=>typeof S==='undefined'||S.lang!=='en';
+const TH=[{"k": "black", "ru": "Графит", "en": "Graphite", "cta": "#0A0A0A", "onCta": "#FFFFFF", "accent": "#0A0A0A", "onAccent": "#FFFFFF", "ink": "#0A0A0A", "free": true}, {"k": "blue", "ru": "Синий", "en": "Blue", "cta": "#2A5DF6", "onCta": "#FFFFFF", "accent": "#2A5DF6", "onAccent": "#FFFFFF", "ink": "#2A5DF6"}, {"k": "lime", "ru": "Лайм", "en": "Lime", "cta": "#84CC16", "onCta": "#142300", "accent": "#84CC16", "onAccent": "#142300", "ink": "#0A0A0A", "low_graphics_ok": "Сергей 2026-11-22: кольцо и аватар ярким лаймом, без оливкового; текст — графит"}, {"k": "tomato", "ru": "Томат", "en": "Tomato", "cta": "#C8402F", "onCta": "#FFFFFF", "accent": "#C8402F", "onAccent": "#FFFFFF", "ink": "#C8402F"}], ph=document.getElementById('phone'), RUx=()=>typeof S==='undefined'||S.lang!=='en';
 let cur='black';
-function apply(k){const t=TH.find(x=>x.k===k);cur=k;['cta','onCta','accent','onAccent'].forEach(p=>ph.style.setProperty('--'+p,t[p]));ph.dataset.accent=k;}
+function apply(k){const t=TH.find(x=>x.k===k);cur=k;['cta','onCta','accent','onAccent'].forEach(p=>ph.style.setProperty('--'+p,t[p]));ph.style.setProperty('--accentInk',t.ink);ph.dataset.accent=k;}
 const sh=document.createElement('div');sh.id='accSheet';ph.appendChild(sh);
 function open(demo){const prem=demo||(typeof S!=='undefined'&&S.premium);const ru=RUx();
  sh.innerHTML='<div class="pan" role="dialog" aria-label="'+(ru?'Цвет оформления':'Accent colour')+'"><button class="x" aria-label="✕">✕</button><h3>'+(ru?'Цвет оформления':'Accent colour')+'</h3><p>'+
