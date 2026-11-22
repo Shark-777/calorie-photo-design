@@ -217,12 +217,13 @@ input::placeholder{color:var(--ink2);opacity:.5}
 #accSheet .pan{width:100%;background:var(--sheet);border-radius:26px 26px 0 0;padding:18px 20px 34px;font-family:var(--font);color:var(--ink)}
 #accSheet h3{margin:0 0 4px;font-size:20px;font-weight:800}#accSheet p{margin:0 0 16px;color:var(--ink2);font-size:14px}
 #accSheet .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-#accSheet button.sw{appearance:none;border:0;background:var(--surface);border-radius:18px;min-height:96px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:8px;font:600 14px var(--font);color:var(--ink);position:relative}
-#accSheet button.sw i{width:40px;height:40px;border-radius:50%;display:block}
+#accSheet button.sw{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border-radius:18px;min-height:96px;padding:14px 4px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font:600 14px var(--font);color:var(--ink);position:relative;text-align:center}
+#accSheet .dot{all:unset;display:block;width:40px;height:40px;border-radius:50%;flex:none}
+#accSheet .nm{all:unset;display:block;font:600 14px var(--font);color:var(--ink)}
 #accSheet button.sw.on{box-shadow:inset 0 0 0 2px var(--ink)}
-#accSheet button.sw b{position:absolute;top:8px;right:10px;font-size:12px}
-#accSheet .go{margin-top:16px;width:100%;min-height:52px;border:0;border-radius:99px;background:var(--cta);color:var(--onCta);font:700 16px var(--font)}
-#accSheet .x{float:right;appearance:none;border:0;background:var(--surface);width:44px;height:44px;border-radius:50%;font-size:18px;color:var(--ink)}
+#accSheet .lk{all:unset;position:absolute;top:6px;right:8px;font-size:12px}
+#accSheet .go{all:unset;box-sizing:border-box;text-align:center;cursor:pointer;display:block;margin-top:16px;width:100%;min-height:52px;border:0;border-radius:99px;background:var(--cta);color:var(--onCta);font:700 16px var(--font)}
+#accSheet .x{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:center;float:right;border:0;background:var(--surface);width:44px;height:44px;border-radius:50%;font-size:18px;color:var(--ink)}
 #accFab{position:absolute;top:8px;right:64px;z-index:61;appearance:none;border:0;background:transparent;font-size:18px;min-width:44px;min-height:32px;cursor:pointer}
 </style></head><body>
 <div id="phone" data-variant="1" data-card="flat" data-btn="pill" data-tab="classic" data-ring="ring" data-dens="cozy" data-bar="thin" style="--pad:20px;--rcard:20px;--rchip:99px;--rc2:14px;--rday:14px;--rtile:20px;--rsheet:26px;--dotw:7px;--hw:800;--h1s:34px;--hls:-0.03em;--bw:700;--fontN:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter','Helvetica Neue',system-ui,sans-serif;--plateIn:#f7f3ec;--plateRim:#e4ded3;--f1:#c8793a;--f2:#7fae4f;--f3:#d9534f;--f4:#e8c547;--sh1:0 1px 2px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.05);--sh2:0 8px 30px rgba(0,0,0,.18);--fabsh:0 6px 16px rgba(0,0,0,.25);--bg:#FFFFFF;--surface:#F4F4F5;--surface2:#EDEDEF;--ink:#0A0A0A;--ink2:#5B5B63;--line:#E4E4E7;--accent:#0A0A0A;--onAccent:#FFFFFF;--cta:#0A0A0A;--onCta:#FFFFFF;--p:#3B9BF0;--c:#F0A02C;--f:#EE5E7A;--good:#2BB868;--warn:#F0A02C;--bad:#D93636;--flame:#F0802C;--track:#E4E4E7;--track2:#CFCFD4;--bar:rgba(255,255,255,.94);--sheet:#FFFFFF;--hero:transparent;--font:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter','Helvetica Neue',system-ui,sans-serif;--fontH:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter','Helvetica Neue',system-ui,sans-serif;--rb:99px">
@@ -778,7 +779,7 @@ const sh=document.createElement('div');sh.id='accSheet';ph.appendChild(sh);
 function open(demo){const prem=demo||(typeof S!=='undefined'&&S.premium);const ru=RUx();
  sh.innerHTML='<div class="pan" role="dialog" aria-label="'+(ru?'Цвет оформления':'Accent colour')+'"><button class="x" aria-label="✕">✕</button><h3>'+(ru?'Цвет оформления':'Accent colour')+'</h3><p>'+
  (demo?(ru?'Быстрый просмотр (не часть приложения)':'Quick preview (not part of the app)'):(prem?(ru?'Кнопки, кольцо и выделение меняют цвет':'Buttons, ring and highlights change colour'):(ru?'Графит бесплатно, остальные цвета — в Premium':'Graphite is free, other colours are Premium')))+'</p><div class="row">'+
- TH.map(t=>'<button class="sw'+(t.k===cur?' on':'')+'" data-k="'+t.k+'"><i style="background:'+t.cta+'"></i>'+(ru?t.ru:t.en)+(!prem&&!t.free?'<b>🔒</b>':'')+'</button>').join('')+
+ TH.map(t=>'<button class="sw'+(t.k===cur?' on':'')+'" data-k="'+t.k+'"><span class="dot" style="background:'+t.cta+'"></span><span class="nm">'+(ru?t.ru:t.en)+'</span>'+(!prem&&!t.free?'<span class="lk">🔒</span>':'')+'</button>').join('')+
  '</div>'+(!prem?'<button class="go">'+(ru?'Открыть Premium':'Get Premium')+'</button>':'')+'</div>';
  sh.classList.add('on');
  sh.querySelector('.x').onclick=()=>sh.classList.remove('on');
